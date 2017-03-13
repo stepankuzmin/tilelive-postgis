@@ -35,6 +35,7 @@ const PostgisSource = function PostgisSource(uri, callback) {
   this._info = {
     id: table,
     name: table,
+    format: 'pbf',
     bounds: datasource.extent(),
     fields: datasource.fields()
   };
@@ -53,14 +54,29 @@ PostgisSource.prototype.getInfo = function getInfo(callback) {
 };
 
 PostgisSource.prototype.getTile = function getTile(z, x, y, callback) {
-  const vt = new mapnik.VectorTile(z, x, y);
+  const headers = {};
+  headers['Content-Type'] = 'application/x-protobuf';
 
+  const vt = new mapnik.VectorTile(z, x, y);
   this._map.render(vt, {}, (error, tile) => {
     if (error) {
-      callback(error);
+      return callback(error);
     }
 
-    callback(null, tile.getData(), {});
+    if (tile.empty()) {
+      return callback(new Error('Tile does not exist'), null, headers);
+    }
+
+    tile.getData({ compression: 'gzip' }, (err, data) => {
+      if (err) {
+        return callback(err);
+      }
+
+      headers['Content-Encoding'] = 'gzip';
+      return callback(err, data, headers);
+    });
+
+    return undefined;
   });
 };
 
