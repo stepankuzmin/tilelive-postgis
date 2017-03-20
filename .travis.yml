@@ -1,0 +1,26 @@
+language: node_js
+
+node_js:
+  - 7
+
+addons:
+  apt:
+    sources:
+     - ubuntu-toolchain-r-test
+    packages:
+     - libstdc++6
+
+services:
+  - postgresql
+
+install:
+  - npm install -g yarn
+  - yarn
+
+before_script:
+  - psql -U postgres -c 'create database test;'
+  - psql -U postgres -d test -c 'create extension postgis'
+  - psql -U postgres -d test -f test/table1.sql
+
+script:
+  - npm test
