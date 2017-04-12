@@ -2,7 +2,7 @@ const os = require('os');
 const url = require('url');
 const path = require('path');
 const mapnik = require('mapnik');
-const mapnikPool = require('../mapnik-pool')(mapnik);
+const mapnikPool = require('mapnik-pool')(mapnik);
 
 const postgisInput = path.resolve(mapnik.settings.paths.input_plugins, 'postgis.input');
 mapnik.register_datasource(postgisInput);
@@ -41,7 +41,10 @@ const PostgisSource = function PostgisSource(uri, callback) {
   const layer = new mapnik.Layer(table, srs);
   layer.datasource = datasource;
 
-  this._pool = mapnikPool.fromLayers([layer], { size: 256, srs: '+init=epsg:3857' });
+  const map = new mapnik.Map(256, 256, srs);
+  map.add_layer(layer);
+
+  this._pool = mapnikPool.fromString(map.toXML());
 
   this._info = {
     id: table,
