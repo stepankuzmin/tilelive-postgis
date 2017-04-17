@@ -8,7 +8,7 @@
     "test": "node test/index.js"
   },
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
-  "license": "BSD",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "http://github.com/stepankuzmin/tilelive-postgis.git"
