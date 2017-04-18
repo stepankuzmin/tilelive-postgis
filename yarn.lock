@@ -492,6 +492,10 @@ esrecurse@^4.1.0:
     estraverse "~4.1.0"
     object-assign "^4.0.1"
 
+esri-proj-codes@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/esri-proj-codes/-/esri-proj-codes-1.0.1.tgz#1c3d82bc48f08940dcf40a5380dcef47c1e6ad4d"
+
 estraverse@^4.0.0, estraverse@^4.1.1, estraverse@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
@@ -714,6 +718,10 @@ http-signature@~1.1.0:
     assert-plus "^0.2.0"
     jsprim "^1.2.2"
     sshpk "^1.7.0"
+
+iconv-lite@^0.4.4:
+  version "0.4.15"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
 ignore@^3.2.0:
   version "3.2.7"
@@ -984,6 +992,12 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
+needle@~0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/needle/-/needle-0.8.2.tgz#b940e99df5740a0ef6c30b60282ecc810fc04245"
+  dependencies:
+    iconv-lite "^0.4.4"
+
 node-pre-gyp@~0.6.30:
   version "0.6.34"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.34.tgz#94ad1c798a11d7fc67381b50d47f8cc18d9799f7"
@@ -1146,6 +1160,12 @@ protozero@~1.4.2:
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/protozero/-/protozero-1.4.5.tgz#80eaa80a4f9c751465c4cb2620d8233b50ec1aff"
 
+ptolemy@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/ptolemy/-/ptolemy-0.0.3.tgz#e4d7cb360a46c8761cd1a8d3825fe3fd23484b9e"
+  dependencies:
+    needle "~0.8.2"
+
 punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
@@ -1202,7 +1222,7 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-request@^2.81.0:
+request@^2.62.0, request@^2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -1310,6 +1330,13 @@ sntp@1.x.x:
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
   dependencies:
     hoek "2.x.x"
+
+spatialreference@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/spatialreference/-/spatialreference-1.0.4.tgz#54acd2298744a6121effd36894dbb5c1d10994ae"
+  dependencies:
+    esri-proj-codes "^1.0.0"
+    request "^2.62.0"
 
 speedometer@~0.1.2:
   version "0.1.4"
