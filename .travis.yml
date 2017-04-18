@@ -13,6 +13,9 @@ addons:
 services:
   - postgresql
 
+before_install:
+  - ./setup.sh
+
 install:
   - npm install -g yarn
   - yarn
