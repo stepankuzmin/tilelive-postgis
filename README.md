@@ -1,7 +1,5 @@
 # tilelive-postgis
 
-[![Build Status](https://travis-ci.org/stepankuzmin/tilelive-postgis.svg?branch=master)](https://travis-ci.org/stepankuzmin/tilelive-postgis)
-
 Implements the tilelive API for generating mapnik vector tiles from PostGIS.
 
 ## Installation
