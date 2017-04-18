@@ -10,7 +10,13 @@ addons:
     sources:
      - ubuntu-toolchain-r-test
     packages:
+     - clang
+     - curl
      - libstdc++6
+     - make
+     - pkg-config
+     - python
+     - zlib1g-dev
 
 services:
   - postgresql
