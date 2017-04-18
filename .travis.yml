@@ -21,17 +21,13 @@ addons:
 services:
   - postgresql
 
-before_install:
-  - ./setup.sh
-
-install:
-  - npm install -g yarn
-  - yarn
-
 before_script:
   - psql -U postgres -c 'create database test;'
   - psql -U postgres -d test -c 'create extension postgis'
   - psql -U postgres -d test -f test/table1.sql
+  - ./setup.sh
 
 script:
+  - npm install -g yarn
+  - yarn
   - npm test
