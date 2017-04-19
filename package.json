@@ -23,7 +23,7 @@
     "tiles"
   ],
   "dependencies": {
-    "mapnik": "3.5.14",
+    "mapnik": "3.6.0",
     "mapnik-pool": "0.1.3",
     "ptolemy": "0.0.3"
   },

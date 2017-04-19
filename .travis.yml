@@ -3,21 +3,6 @@ language: node_js
 node_js:
   - 7
 
-sudo: required
-
-addons:
-  apt:
-    sources:
-     - ubuntu-toolchain-r-test
-    packages:
-     - clang
-     - curl
-     - libstdc++6
-     - make
-     - pkg-config
-     - python
-     - zlib1g-dev
-
 services:
   - postgresql
 
@@ -25,7 +10,6 @@ before_script:
   - psql -U postgres -c 'create database test;'
   - psql -U postgres -d test -c 'create extension postgis'
   - psql -U postgres -d test -f test/table1.sql
-  - ./setup.sh
 
 script:
   - npm install -g yarn
