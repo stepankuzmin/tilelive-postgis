@@ -28,13 +28,20 @@ tilelive.load(uri, function(error, source) {
 });
 ```
 
+You can also use `query` parameter to specify sub-query like this:
+
+```js
+const query = `(select * from schemaName.tableName where st_intersects(geometry, !bbox!)) as query`;
+const uri = `postgis://user@localhost/test?table=test_table&geometry_field=geometry&query=${encodeURI(query)}`;
+```
+
 ## Parameters
 
 Actual list of parameters you can see [here](https://github.com/mapnik/mapnik/wiki/PostGIS).
 
 | *parameter*       | *value*  | *description* | *default* |
 |:------------------|----------|---------------|----------:|
-| table                 | string       | name of the table to fetch, this can be a sub-query;  subquery has to use syntax of:  '( ) as subquery'. | |
+| table                 | string       | name of the table to fetch. | |
 | geometry_field        | string       | name of the geometry field, in case you have more than one in a single table. This field and the SRID will be deduced from the query in most cases, but may need to be manually specified in some cases.| |
 | geometry_table        | string       | name of the table containing the returned geometry; for determining RIDs with subselects | |
 | srid                  | integer      | srid of the table, if this is > 0 then fetching data will avoid an extra database query for knowing the srid of the table | 0 |

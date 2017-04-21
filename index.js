@@ -20,7 +20,7 @@ const PostgisSource = function PostgisSource(uri, callback) {
     [user, password] = params.auth.split(':');
   }
 
-  const { table } = params.query;
+  const { table, query } = params.query;
 
   const defaultOptions = {
     type: 'postgis',
@@ -28,10 +28,11 @@ const PostgisSource = function PostgisSource(uri, callback) {
     port: params.port || 5432,
     dbname: params.pathname.replace(/^\//, ''),
     user,
-    password
+    password,
+    table: query || table
   };
 
-  const options = Object.assign({}, defaultOptions, params.query);
+  const options = Object.assign({}, params.query, defaultOptions);
 
   const datasource = new mapnik.Datasource(options);
   const layer = new mapnik.Layer(table);
