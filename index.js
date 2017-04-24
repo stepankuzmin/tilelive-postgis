@@ -1,41 +1,21 @@
-const os = require('os');
-const url = require('url');
 const path = require('path');
+const parse = require('./parse');
 const mapnik = require('mapnik');
 const mapnikPool = require('mapnik-pool')(mapnik);
 
 const postgisInput = path.resolve(mapnik.settings.paths.input_plugins, 'postgis.input');
 mapnik.register_datasource(postgisInput);
 
-const { username } = os.userInfo();
 const srs = '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over';
 
 const PostgisSource = function PostgisSource(uri, callback) {
-  const params = url.parse(uri);
+  const options = parse(uri);
 
-  let user = username;
-  let password = '';
-
-  if (params.auth) {
-    [user, password] = params.auth.split(':');
-  }
-
-  const { table, query } = params.query;
-
-  const defaultOptions = {
-    type: 'postgis',
-    host: params.hostname,
-    port: params.port || 5432,
-    dbname: params.pathname.replace(/^\//, ''),
-    user,
-    password,
-    table: query || table
-  };
-
-  const options = Object.assign({}, params.query, defaultOptions);
+  const { tableName } = options;
+  delete options.tableName;
 
   const datasource = new mapnik.Datasource(options);
-  const layer = new mapnik.Layer(table);
+  const layer = new mapnik.Layer(tableName);
   layer.datasource = datasource;
 
   const map = new mapnik.Map(256, 256, srs);
@@ -45,8 +25,8 @@ const PostgisSource = function PostgisSource(uri, callback) {
   this._pool = mapnikPool.fromString(xml);
 
   this._info = {
-    id: table,
-    name: table,
+    id: tableName,
+    name: tableName,
     format: 'pbf',
     scheme: 'tms',
     bounds: datasource.extent(),

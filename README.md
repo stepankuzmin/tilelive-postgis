@@ -17,10 +17,10 @@ const tilelive = require('tilelive');
 require('tilelive-postgis').registerProtocols(tilelive);
 
 const uri = 'postgis://user:password@localhost:5432/test?table=test_table&geometry_field=geometry&srid=4326';
-tilelive.load(uri, function(error, source) {
+tilelive.load(uri, (error, source) => {
   if (error) throw error;
 
-  source.getTile(0, 0, 0, function(error, tile, headers) {
+  source.getTile(0, 0, 0, (error, tile, headers) => {
     // `error` is an erroror object when generation failed, otherwise null.
     // `tile` contains the compressed image file as a Buffer
     // `headers` is a hash with HTTP headers for the image.
@@ -28,11 +28,19 @@ tilelive.load(uri, function(error, source) {
 });
 ```
 
+If PostgreSQL server running locally and accepting connections on Unix domain socket, you can connect like this:
+
+```js
+const uri = 'postgis:///var/run/postgresql/test?table=test&geometry_field=geom';
+tilelive.load(uri, (error, source) => { ... });
+```
+
 You can also use `query` parameter to specify sub-query like this:
 
 ```js
 const query = `(select * from schemaName.tableName where st_intersects(geometry, !bbox!)) as query`;
 const uri = `postgis://user@localhost/test?table=test_table&geometry_field=geometry&query=${encodeURI(query)}`;
+tilelive.load(uri, (error, source) => { ... });
 ```
 
 ## Parameters

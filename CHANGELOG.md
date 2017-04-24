@@ -1,5 +1,9 @@
 ## tilelive-postgis
 
+### 1.2.0
+
+- Add Unix domain socket support
+
 ### 1.1.0
 
 - Add sub-query support
