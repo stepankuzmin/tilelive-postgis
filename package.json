@@ -3,11 +3,6 @@
   "version": "1.2.1",
   "description": "tilelive.js adapter for reading from the PostGIS",
   "homepage": "https://github.com/stepankuzmin/tilelive-postgis",
-  "main": "index.js",
-  "scripts": {
-    "release": "standard-version",
-    "test": "node test/index.js"
-  },
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
   "licenses": [
     {
@@ -27,11 +22,24 @@
     "tilelive",
     "tiles"
   ],
+  "main": "index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "release": "standard-version",
+    "test": "node test/index.js"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "mapnik": "3.6.0",
     "mapnik-pool": "0.1.3"
   },
   "devDependencies": {
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "2.0.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.1.3",
     "eslint-plugin-import": "2.2.0",
