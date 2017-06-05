@@ -1,7 +1,8 @@
 # tilelive-postgis
 
+[![npm version](https://img.shields.io/npm/v/tilelive-postgis.svg)](https://www.npmjs.com/package/tilelive-postgis)
+[![npm downloads](https://img.shields.io/npm/dt/tilelive-postgis.svg)](https://www.npmjs.com/package/tilelive-postgis)
 [![Build Status](https://travis-ci.org/stepankuzmin/tilelive-postgis.svg?branch=master)](https://travis-ci.org/stepankuzmin/tilelive-postgis)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Implements the tilelive API for generating mapnik vector tiles from PostGIS.
 
@@ -14,7 +15,7 @@ npm install tilelive-postgis
 ## Usage
 
 ```js
-const tilelive = require('tilelive');
+const tilelive = require('@mapbox/tilelive');
 require('tilelive-postgis').registerProtocols(tilelive);
 
 const uri = 'postgis://user:password@localhost:5432/test?table=test_table&geometry_field=geometry&srid=4326';
