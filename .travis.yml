@@ -1,5 +1,9 @@
 language: node_js
 
+branches:
+  except:
+    - /^v[0-9]/
+
 node_js:
   - 7
 
@@ -13,12 +17,20 @@ addons:
 services:
   - postgresql
 
+before_install:
+  - yarn global add greenkeeper-lockfile@1
+
+install:
+  - yarn
+
 before_script:
   - psql -U postgres -c 'create database test;'
   - psql -U postgres -d test -c 'create extension postgis'
   - psql -U postgres -d test -f test/table1.sql
+  - greenkeeper-lockfile-update
 
 script:
-  - npm install -g yarn
-  - yarn
   - npm test
+
+after_script:
+  - greenkeeper-lockfile-upload
