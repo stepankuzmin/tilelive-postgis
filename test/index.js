@@ -2,7 +2,7 @@
 
 const os = require('os');
 const test = require('tape');
-const tilelive = require('tilelive');
+const tilelive = require('@mapbox/tilelive');
 const parse = require('../parse');
 const postgis = require('../index');
 
