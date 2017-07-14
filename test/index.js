@@ -61,7 +61,7 @@ test('tilelive-postgis', (t) => {
       t.ifError(err);
       t.ok(buffer);
       t.ok(headers);
-      t.end();
+      source.close(t.end);
     });
   });
 });
