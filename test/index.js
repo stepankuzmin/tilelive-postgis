@@ -3,8 +3,8 @@
 const os = require('os');
 const test = require('tape');
 const tilelive = require('@mapbox/tilelive');
-const parse = require('../parse');
-const postgis = require('../index');
+const parse = require('../src/parse');
+const postgis = require('../src/index');
 
 const { username } = os.userInfo();
 postgis.registerProtocols(tilelive);
