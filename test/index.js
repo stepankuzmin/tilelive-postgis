@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 const os = require('os');
 const test = require('tape');
 const tilelive = require('@mapbox/tilelive');
