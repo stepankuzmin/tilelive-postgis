@@ -8,15 +8,17 @@ node_js:
   - 7
   - 8
 
+services:
+  - postgresql
+
 addons:
+  postgresql: 9.6
   apt:
     sources:
      - ubuntu-toolchain-r-test
     packages:
      - libstdc++6
-
-services:
-  - postgresql
+     - postgresql-9.6-postgis-2.3
 
 before_install:
   - yarn global add greenkeeper-lockfile@1
