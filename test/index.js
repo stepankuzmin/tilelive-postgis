@@ -8,46 +8,43 @@ const { username } = os.userInfo();
 postgis.registerProtocols(tilelive);
 
 test('tilelive-postgis parse', (t) => {
-  t.deepEqual(
-    parse('postgis://user:password@localhost/test?table=test&geometry_field=geom'), {
-      type: 'postgis',
-      dbname: 'test',
-      host: 'localhost',
-      port: 5432,
-      user: 'user',
-      password: 'password',
-      geometry_field: 'geom',
-      table: 'test',
-      tableName: 'test'
-    });
+  t.deepEqual(parse('postgis://user:password@localhost/test?table=test&geometry_field=geom'), {
+    type: 'postgis',
+    dbname: 'test',
+    host: 'localhost',
+    port: 5432,
+    user: 'user',
+    password: 'password',
+    geometry_field: 'geom',
+    table: 'test',
+    tableName: 'test'
+  });
 
-  t.deepEqual(
-    parse('postgis:///var/run/postgresql:5433/test?table=test&geometry_field=geom'), {
-      type: 'postgis',
-      dbname: 'test',
-      host: '/var/run/postgresql',
-      port: 5433,
-      user: username,
-      password: '',
-      geometry_field: 'geom',
-      table: 'test',
-      tableName: 'test'
-    });
+  t.deepEqual(parse('postgis:///var/run/postgresql:5433/test?table=test&geometry_field=geom'), {
+    type: 'postgis',
+    dbname: 'test',
+    host: '/var/run/postgresql',
+    port: 5433,
+    user: username,
+    password: '',
+    geometry_field: 'geom',
+    table: 'test',
+    tableName: 'test'
+  });
 
   const query = '(select * from test where st_intersects(geom, !bbox!)) as query';
-  t.deepEqual(
-    parse(`postgis:///var/run/postgresql/test?table=test&geometry_field=geom&query=${encodeURI(query)}`), {
-      type: 'postgis',
-      dbname: 'test',
-      host: '/var/run/postgresql',
-      port: 5432,
-      user: username,
-      password: '',
-      geometry_field: 'geom',
-      tableName: 'test',
-      table: query,
-      query
-    });
+  t.deepEqual(parse(`postgis:///var/run/postgresql/test?table=test&geometry_field=geom&query=${encodeURI(query)}`), {
+    type: 'postgis',
+    dbname: 'test',
+    host: '/var/run/postgresql',
+    port: 5432,
+    user: username,
+    password: '',
+    geometry_field: 'geom',
+    tableName: 'test',
+    table: query,
+    query
+  });
 
   t.end();
 });

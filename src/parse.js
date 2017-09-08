@@ -9,10 +9,9 @@ const parse = (uri) => {
   const { dir, base } = path.parse(params.pathname);
 
   const dbname = base;
-  let port = params.port;
-  let host = params.hostname;
-  if (!host && dir !== '/') {
-    [host, port] = dir.split(':');
+  let { port, hostname } = params;
+  if (!hostname && dir !== '/') {
+    [hostname, port] = dir.split(':');
     port = parseInt(port, 10);
   }
 
@@ -27,7 +26,7 @@ const parse = (uri) => {
 
   const defaultOptions = {
     type: 'postgis',
-    host,
+    host: hostname,
     port: port || 5432,
     dbname,
     user,
