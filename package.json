@@ -1,6 +1,6 @@
 {
   "name": "tilelive-postgis",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "tilelive.js adapter for reading from the PostGIS",
   "homepage": "https://github.com/stepankuzmin/tilelive-postgis",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",

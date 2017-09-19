@@ -23,6 +23,7 @@ const parse = (uri) => {
   }
 
   const { table, query } = params.query;
+  const layerName = params.query.layerName || table;
 
   const defaultOptions = {
     type: 'postgis',
@@ -31,8 +32,8 @@ const parse = (uri) => {
     dbname,
     user,
     password,
-    tableName: table,
-    table: query || table
+    table: query || table,
+    layerName
   };
 
   return Object.assign({}, params.query, defaultOptions);

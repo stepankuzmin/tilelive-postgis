@@ -11,11 +11,11 @@ const srs = '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y
 const PostgisSource = function PostgisSource(uri, callback) {
   const options = parse(uri);
 
-  const { tableName } = options;
-  delete options.tableName;
+  const { layerName } = options;
+  delete options.layerName;
 
   const datasource = new mapnik.Datasource(options);
-  const layer = new mapnik.Layer(tableName);
+  const layer = new mapnik.Layer(layerName);
   layer.datasource = datasource;
 
   const map = new mapnik.Map(256, 256, srs);
@@ -25,8 +25,8 @@ const PostgisSource = function PostgisSource(uri, callback) {
   this._pool = mapnikPool.fromString(xml);
 
   this._info = {
-    id: tableName,
-    name: tableName,
+    id: layerName,
+    name: layerName,
     format: 'pbf',
     scheme: 'tms',
     bounds: datasource.extent(),

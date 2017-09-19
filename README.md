@@ -47,6 +47,13 @@ tilelive.load(uri, (error, source) => { ... });
 
 ## Parameters
 
+The only parameter that is not mapnik specific is:
+
+| *parameter*       | *value*  | *description* | *default* |
+|:------------------|----------|---------------|----------:|
+| layerName         | string   | name of the layer in resulting tiles. | defaults to the table name for backwards compatibility.|
+
+
 Actual list of parameters you can see [here](https://github.com/mapnik/mapnik/wiki/PostGIS).
 
 | *parameter*       | *value*  | *description* | *default* |
