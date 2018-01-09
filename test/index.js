@@ -77,7 +77,7 @@ test('tilelive-postgis parse', (t) => {
 });
 
 test('tilelive-postgis', (t) => {
-  const uri = 'postgis://localhost/test?table=test&geometry_field=geom';
+  const uri = 'postgis://postgres@localhost/test?table=test&geometry_field=geom';
   tilelive.load(uri, (error, source) => {
     t.ifError(error);
     t.ok(source);
@@ -91,7 +91,7 @@ test('tilelive-postgis', (t) => {
 });
 
 test('tilelive-postgis with custom layerName', (t) => {
-  const uri = 'postgis://localhost/test?table=test&layerName=myLayer&geometry_field=geom';
+  const uri = 'postgis://postgres@localhost/test?table=test&layerName=myLayer&geometry_field=geom';
   tilelive.load(uri, (error, source) => {
     t.ifError(error);
     t.ok(source);
