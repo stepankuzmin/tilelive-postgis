@@ -2,7 +2,13 @@ const os = require('os');
 const url = require('url');
 const path = require('path');
 
-const { username } = os.userInfo();
+let username;
+try {
+  /* eslint-disable prefer-destructuring */
+  username = os.userInfo().username;
+} catch (e) {
+  username = '';
+}
 
 const parse = (uri) => {
   const params = url.parse(uri, true, true);
