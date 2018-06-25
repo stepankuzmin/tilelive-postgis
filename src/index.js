@@ -1,7 +1,7 @@
 const path = require('path');
-const parse = require('./parse');
 const mapnik = require('mapnik');
 const mapnikPool = require('mapnik-pool')(mapnik);
+const parse = require('./parse');
 
 const postgisInput = path.resolve(mapnik.settings.paths.input_plugins, 'postgis.input');
 mapnik.register_datasource(postgisInput);
