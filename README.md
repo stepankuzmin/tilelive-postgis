@@ -23,7 +23,7 @@ tilelive.load(uri, (error, source) => {
   if (error) throw error;
 
   source.getTile(0, 0, 0, (error, tile, headers) => {
-    // `error` is an erroror object when generation failed, otherwise null.
+    // `error` is an error object when generation failed, otherwise null.
     // `tile` contains the compressed image file as a Buffer
     // `headers` is a hash with HTTP headers for the image.
   });
