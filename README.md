@@ -4,12 +4,12 @@
 [![npm downloads](https://img.shields.io/npm/dt/tilelive-postgis.svg)](https://www.npmjs.com/package/tilelive-postgis)
 [![Build Status](https://travis-ci.org/stepankuzmin/tilelive-postgis.svg?branch=master)](https://travis-ci.org/stepankuzmin/tilelive-postgis)
 
-Implements the tilelive API for generating mapnik vector tiles from PostGIS.
+Implements the [tilelive](https://github.com/mapbox/tilelive) API for generating mapnik vector tiles from PostGIS.
 
 ## Installation
 
 ```shell
-npm install tilelive-postgis
+npm install @mapbox/tilelive tilelive-postgis
 ```
 
 ## Usage
@@ -73,4 +73,4 @@ Actual list of parameters you can see [here](https://github.com/mapnik/mapnik/wi
 | multiple_geometries   | boolean      | whether to use multiple different objects or a single one when dealing with multi-objects (this is mainly related to how the label are used in the map, one label for a multi-polygon or one label for each polygon of a multi-polygon)| false |
 | encoding              | string       | internal file encoding | utf-8 |
 | simplify_geometries   | boolean      | whether to automatically [reduce input vertices](http://blog.cartodb.com/post/20163722809/speeding-up-tiles-rendering). Only effective when output projection matches (or is similar to) input projection. Available from version 2.1.x up. | false |
-| max_async_connection  | integer       | max number of PostGIS queries for rendering one map in asynchronous mode. Full doc [here](Postgis-async). Default value (1) has no effect. | 1 |
+| max_async_connection  | integer       | max number of PostGIS queries for rendering one map in asynchronous mode. Default value (1) has no effect. | 1 |
