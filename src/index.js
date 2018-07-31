@@ -70,7 +70,7 @@ PostgisSource.prototype.getTile = function getTile(z, x, y, callback) {
         return callback(new Error('Tile does not exist'), null, headers);
       }
 
-      tile.getData({ compression: 'gzip' }, (error, data) => {
+      tile.getData({ compression: 'gzip', release: true }, (error, data) => {
         this._pool.release(map);
         if (error) {
           return callback(error);
