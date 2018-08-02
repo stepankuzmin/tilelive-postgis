@@ -1,6 +1,6 @@
 {
   "name": "tilelive-postgis",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "tilelive.js adapter for reading from the PostGIS",
   "homepage": "https://github.com/stepankuzmin/tilelive-postgis",
   "author": "Stepan Kuzmin <to.stepan.kuzmin@gmail.com> (stepankuzmin.ru)",
@@ -33,7 +33,7 @@
     }
   },
   "dependencies": {
-    "mapnik": "^4.0.0",
+    "mapnik": "^4.0.1",
     "mapnik-pool": "^0.1.3",
     "snyk": "^1.88.2"
   },
