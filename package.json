@@ -35,15 +35,15 @@
   "dependencies": {
     "mapnik": "^4.0.1",
     "mapnik-pool": "^0.1.3",
-    "snyk": "^1.90.0"
+    "snyk": "^1.95.3"
   },
   "devDependencies": {
     "@mapbox/tilelive": "^6.0.0",
     "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "standard-version": "^4.4.0",
     "tape": "^4.9.1"
   },
