@@ -17,7 +17,7 @@ addons:
      - ubuntu-toolchain-r-test
     packages:
      - libstdc++6
-     - postgresql-9.6-postgis-2.3
+     - postgresql-9.6-postgis-2.4
 
 before_install:
   - npm i -g greenkeeper-lockfile@1
