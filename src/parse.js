@@ -42,7 +42,7 @@ const parse = (uri) => {
     layerName
   };
 
-  return Object.assign({}, params.query, defaultOptions);
+  return { ...params.query, ...defaultOptions };
 };
 
 module.exports = parse;
