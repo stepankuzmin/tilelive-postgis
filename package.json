@@ -44,10 +44,10 @@
     "@mapbox/tilelive": "^6.0.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.3.0",
+    "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "snyk": "^1.222.1",
+    "snyk": "^1.228.4",
     "standard-version": "^7.0.0",
     "tape": "^4.11.0"
   },
