@@ -48,7 +48,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "2.20.1",
     "snyk": "1.298.1",
-    "standard-version": "7.1.0",
+    "standard-version": "8.0.1",
     "tape": "4.13.2"
   },
   "snyk": true
